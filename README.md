@@ -22,6 +22,8 @@ A question is prompted. Once the user clicks screen, the answer will then be pro
 
 <img src="Images/lab1_optional1.gif" width=200><br><br>
 
-- [ ] Add selectable multiple choice answers beneath the card
-   - [ ] Change the background color of the multiple choice answers when clicked to indicate whether the question waanswered correctly
-- [ ] Further customize and style the card
+- [ x ] Add selectable multiple choice answers beneath the card
+   - [ x ] Change the background color of the multiple choice answers when clicked to indicate whether the question was answered correctly
+- [ x ] Further customize and style the card
+
+<img src="Images/lab1_optional2.gif" width=200><br><br>
