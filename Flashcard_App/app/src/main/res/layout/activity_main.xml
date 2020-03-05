@@ -20,11 +20,12 @@
         android:layout_marginTop="3dp"
         android:layout_marginEnd="3dp"
         android:elevation="4dp"
-        android:background="@drawable/solid_color_shape"
         android:text="Who is the 44th President of the United States?"
         android:textAlignment="center"
         android:textColor="#824BE2"
         android:textSize="40sp" />
+        <!--android:background="@drawable/solid_color_shape"-->
+
 
     <TextView
         android:id="@+id/answer"
@@ -40,7 +41,6 @@
         android:layout_marginEnd="3dp"
         android:layout_marginBottom="526dp"
         android:elevation="4dp"
-        android:background="@drawable/solid_color_answer"
         android:bufferType="normal"
         android:text="Barack Obama"
         android:textAlignment="center"
@@ -48,58 +48,73 @@
         android:textSize="40sp"
         android:visibility="invisible"
         tools:visibility="invisible" />
+    <!--android:background="@drawable/solid_color_answer"-->
 
-    <TextView
-        android:id="@+id/choice1"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="267dp"
-        android:background="#DDF3C37E"
-        android:text="Bill Clinton"
-        android:textAlignment="center"
-        android:textColor="#9C27B0"
-        android:textSize="40dp" />
-
-    <TextView
-        android:id="@+id/choice2"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginBottom="187dp"
-        android:background="#DDF3C37E"
-        android:text="George H. W. Bush"
-        android:textAlignment="center"
-        android:textColor="#9C27B0"
-        android:textSize="40dp" />
-
-    <TextView
-        android:id="@+id/choice3"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_alignParentStart="true"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="93dp"
+        android:layout_height="84dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="-3dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="110dp"
-        android:background="#DDF3C37E"
-        android:text="Barack Obama"
-        android:textAlignment="center"
-        android:textColor="#9C27B0"
-        android:textSize="40dp" />
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-    <Switch
-        android:id="@+id/toggle"
-        android:layout_width="83dp"
-        android:layout_height="42dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="151dp"
-        android:layout_marginBottom="41dp" />
+    <!-- optional work
+        <TextView
+            android:id="@+id/choice1"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="267dp"
+            android:background="#DDF3C37E"
+            android:text="Bill Clinton"
+            android:textAlignment="center"
+            android:textColor="#9C27B0"
+            android:textSize="40dp" />
 
+        <TextView
+            android:id="@+id/choice2"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginBottom="187dp"
+            android:background="#DDF3C37E"
+            android:text="George H. W. Bush"
+            android:textAlignment="center"
+            android:textColor="#9C27B0"
+            android:textSize="40dp" />
+
+        <TextView
+            android:id="@+id/choice3"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-3dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="110dp"
+            android:background="#DDF3C37E"
+            android:text="Barack Obama"
+            android:textAlignment="center"
+            android:textColor="#9C27B0"
+            android:textSize="40dp" />
+
+        <Switch
+            android:id="@+id/toggle"
+            android:layout_width="83dp"
+            android:layout_height="42dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="151dp"
+            android:layout_marginBottom="41dp" />
+    end comment -->
 </RelativeLayout>
+

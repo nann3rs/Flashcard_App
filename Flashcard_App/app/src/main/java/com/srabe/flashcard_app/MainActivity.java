@@ -1,9 +1,11 @@
 package com.srabe.flashcard_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+/*
         //change colors of the choice made; red = wrong; green = correct
         findViewById(R.id.choice1).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,8 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
-     /*   findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
+*/
+        findViewById(R.id.flashcard_question).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 TextView question = (TextView)findViewById(R.id.flashcard_question);
@@ -88,6 +90,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-      */
+        findViewById(R.id.floatingActionButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
+        });
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 100){
+            String string1 = data.getExtras().getString("string1");
+            String string2 = data.getExtras().getString("string2");
+
+            ((TextView)findViewById(R.id.flashcard_question)).setText(string1);
+            ((TextView)findViewById(R.id.answer)).setText(string2);
+        }
     }
 }
