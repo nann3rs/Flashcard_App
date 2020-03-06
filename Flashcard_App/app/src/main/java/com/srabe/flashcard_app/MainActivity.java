@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -98,18 +100,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        findViewById(R.id.floatingActionButton4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //grab current Question and Answer strings
+                String stringKey1 = ((TextView)findViewById(R.id.flashcard_question)).getText().toString();
+                String stringKey2 = ((TextView)findViewById(R.id.answer)).getText().toString();
+
+                //pass the two strings to AddCardActivity
+                Intent intent = new Intent(MainActivity.this, AddCardActivity.class);
+                intent.putExtra("stringKey1", stringKey1);
+                intent.putExtra("stringKey2", stringKey2);
+                MainActivity.this.startActivityForResult(intent, 100);
+            }
+        });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 100){
+        if(requestCode == 100 && resultCode == RESULT_OK){
             String string1 = data.getExtras().getString("string1");
             String string2 = data.getExtras().getString("string2");
 
             ((TextView)findViewById(R.id.flashcard_question)).setText(string1);
             ((TextView)findViewById(R.id.answer)).setText(string2);
         }
+
+        //snackbar
+        Snackbar.make(findViewById(R.id.flashcard_question),
+                "Card successfully created",
+                Snackbar.LENGTH_SHORT)
+                .show();
     }
 }
