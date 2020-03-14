@@ -74,6 +74,28 @@
         app:backgroundTint="@android:color/white"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/next_button"
+        android:layout_width="93dp"
+        android:layout_height="84dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="18dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_media_next" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:backgroundTint="@android:color/white"
+        app:srcCompat="@android:drawable/ic_menu_delete" />
+
     <!-- optional work
         <TextView
             android:id="@+id/choice1"

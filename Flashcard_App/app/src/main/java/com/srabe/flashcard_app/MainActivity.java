@@ -10,12 +10,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        flashcardDatabase = new FlashcardDatabase(this);
+        allFlashcards = flashcardDatabase.getAllCards();
+
+        if(allFlashcards != null && allFlashcards.size() > 0){
+            ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(0).getQuestion());
+            ((TextView) findViewById(R.id.answer)).setText(allFlashcards.get(0).getAnswer());
+        }
 /*
         //change colors of the choice made; red = wrong; green = correct
         findViewById(R.id.choice1).setOnClickListener(new View.OnClickListener() {
@@ -114,6 +124,31 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivityForResult(intent, 100);
             }
         });
+
+        findViewById(R.id.next_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //advance our pointer index so we can show the next card
+                currentCardDisplayedIndex++;
+
+                //make sure we don't get an IndexOutOfBoundsError if we are viewing the last indexed card in our list
+                if(currentCardDisplayedIndex > allFlashcards.size() - 1){
+                    currentCardDisplayedIndex = 0;
+                }
+
+                //set the question and answer TextViews with data from the database
+                ((TextView) findViewById(R.id.flashcard_question)).setText(allFlashcards.get(currentCardDisplayedIndex).getQuestion());
+                ((TextView) findViewById(R.id.answer)).setText(allFlashcards.get(currentCardDisplayedIndex).getAnswer());
+            }
+        });
+
+        findViewById(R.id.deleteBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                flashcardDatabase.deleteCard(((TextView) findViewById(R.id.flashcard_question)).getText().toString());
+                allFlashcards = flashcardDatabase.getAllCards();
+            }
+        });
     }
 
     @Override
@@ -126,6 +161,9 @@ public class MainActivity extends AppCompatActivity {
 
             ((TextView)findViewById(R.id.flashcard_question)).setText(string1);
             ((TextView)findViewById(R.id.answer)).setText(string2);
+
+            flashcardDatabase.insertCard(new Flashcard(string1, string2));
+            allFlashcards = flashcardDatabase.getAllCards();
         }
 
         //snackbar
@@ -134,4 +172,8 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.LENGTH_SHORT)
                 .show();
     }
+
+    FlashcardDatabase flashcardDatabase;
+    List<Flashcard> allFlashcards;
+    int currentCardDisplayedIndex = 0;
 }
