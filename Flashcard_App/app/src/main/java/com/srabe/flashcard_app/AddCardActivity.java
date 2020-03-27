@@ -45,6 +45,7 @@ public class AddCardActivity extends AppCompatActivity {
                     data.putExtra("string1", question);
                     data.putExtra("string2", answer2);
                     setResult(RESULT_OK, data);
+                    overridePendingTransition(R.anim.left_out, R.anim.right_in);
                     finish();
                 }
             }
